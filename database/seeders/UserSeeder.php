@@ -16,18 +16,18 @@ class UserSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::create([
-            'name' => 'etmin',
-            'email' => 'admin@example.com',
-            'password' => Hash::make('password'),
-            'role' => 'admin',
-        ]);
+        // User::create([
+        //     'name' => 'etmin',
+        //     'email' => 'admin@example.com',
+        //     'password' => Hash::make('password'),
+        //     'role' => 'admin',
+        // ]);
 
-        User::create([
-            'name' => 'pegawai',
-            'email' => 'employee@example.com',
-            'password' => Hash::make('password'),
-            'role' => 'employee',
-        ]);
+        // User::create([
+        //     'name' => 'pegawai',
+        //     'email' => 'employee@example.com',
+        //     'password' => Hash::make('password'),
+        //     'role' => 'employee',
+        // ]);
     }
 }

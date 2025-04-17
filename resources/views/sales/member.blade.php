@@ -40,7 +40,9 @@
                                     Qty: {{ $item['quantity'] }}
                                 </p>
                                 <p class="text-sm text-gray-600">Poin Didapat: {{ number_format($item['subtotal'] * 0.01, 0, ',', '.') }}</p>
-                                <p class="text-sm text-gray-600">Point Yang Dapat Dipakai: {{ $point - ($totalPrice * 0.01) }}</p>
+                                <p class="text-sm text-gray-600">
+                                    Point Yang Dapat Dipakai: {{ max(0, $point - ($totalPrice * 0.01)) }}
+                                </p>
                             </div>
                             <div class="text-right">
                                 <p class="font-semibold">
@@ -80,14 +82,21 @@
         @endforeach
 
         {{-- Gunakan Point --}}
+        @php
+            $poinTersedia = max(0, $point - ($totalPrice * 0.01));
+        @endphp
+
         <div>
             <label class="block font-semibold mb-2">Gunakan Point?</label>
             <label class="inline-flex items-center">
-                <input type="checkbox" name="poin_dipakai" class="mr-2">
-                Gunakan {{ $point - ($totalPrice * 0.01) }} points
+                <input type="checkbox" name="poin_dipakai" class="mr-2" {{ $poinTersedia == 0 ? 'disabled' : '' }}>
+                Gunakan {{ $poinTersedia }} points
             </label>
-        </div>
 
+            @if ($poinTersedia == 0)
+                <p class="text-red-500 text-sm mt-2">Anda tidak memiliki point.</p>
+            @endif
+        </div>
 
         {{-- Submit Button --}}
         <div class="text-end">

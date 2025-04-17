@@ -15,28 +15,55 @@
             <p class="text-lg text-gray-600">Selamat Datang, <span class="font-medium text-blue-600">Administrator</span>!</p>
         </div>
 
-        <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-            <h3 class="text-xl font-semibold text-yellow-600 mb-4">Jumlah Member</h3>
-            <p class="text-lg text-gray-600 font-bold">Member: {{ $memberCount }}</p>
-            <p class="text-lg text-gray-600 font-bold">Non-Member: {{ $nonMemberCount }}</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-                <h3 class="text-xl font-semibold text-blue-700 mb-4">Jumlah Penjualan per Hari</h3>
+        <div class="bg-white p-8 rounded-2xl shadow-md">
+            <div class="flex items-center mb-6">
+                <div class="p-2 rounded-md bg-yellow-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 6h8M8 12h8M8 18h8" />
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-semibold text-yellow-700 ml-3">Statistik Pembeli</h3>
+            </div>
+            <div class="flex flex-col md:flex-row gap-6">
+                <div class="flex-1 flex items-center p-4 rounded-lg bg-green-50 shadow-sm border border-green-100">
+                    <div class="p-2 rounded-full bg-green-200 mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12l5 5L19 7" />
+                        </svg>
+                    </div>
+                    <p class="text-lg text-gray-700 font-semibold">
+                        Members: <span class="text-black">{{ $memberCount }}</span>
+                    </p>
+                </div>
+                <div class="flex-1 flex items-center p-4 rounded-lg bg-red-50 shadow-sm border border-red-100">
+                    <div class="p-2 rounded-full bg-red-200 mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12l-5 5L5 7" />
+                        </svg>
+                    </div>
+                    <p class="text-lg text-gray-700 font-semibold">
+                        Non-Members: <span class="text-black">{{ $nonMemberCount }}</span>
+                    </p>
+                </div>
+            </div>
+        </div>    
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-blue-100 hover:shadow-2xl transition-shadow duration-300">
+                <h3 class="text-xl font-semibold text-blue-700 mb-5">Jumlah Penjualan per Hari</h3>
                 <div id="container" class="w-full h-80"></div>
             </div>
-
-            <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-                <h3 class="text-xl font-semibold text-pink-600 mb-4">Persentase Penjualan Produk</h3>
+        
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-blue-100 hover:shadow-2xl transition-shadow duration-300">
+                <h3 class="text-xl font-semibold text-pink-600 mb-5">Persentase Penjualan Produk</h3>
                 <div id="con" class="w-full h-80"></div>
             </div>
-
-            <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-                <h3 class="text-xl font-semibold text-green-600 mb-4">Stok Tersisa Produk</h3>
+        
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-blue-100 hover:shadow-2xl transition-shadow duration-300">
+                <h3 class="text-xl font-semibold text-green-600 mb-5">Stok Tersisa Produk</h3>
                 <div id="productChart" class="w-full h-80"></div>
             </div>
-        </div>
+        </div>        
     </div>
 
     <script>

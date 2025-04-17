@@ -14,17 +14,17 @@ class ProdukSeeder extends Seeder
      */
     public function run(): void
     {
-        $faker = Faker::create();
+        // $faker = Faker::create();
 
-        for ($i = 0; $i < 10; $i++) { 
-            Produk::create([
-                'image' => $faker->imageUrl(640, 480, 'food', true), // Generate a random image URL
-                'produk' => $faker->word,
-                'harga' => $faker->numberBetween(1000, 100000),
-                'stok' => $faker->numberBetween(1, 100),
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
-        }
+        // for ($i = 0; $i < 10; $i++) { 
+        //     Produk::create([
+        //         'image' => $faker->imageUrl(640, 480, 'food', true),
+        //         'produk' => $faker->word,
+        //         'harga' => $faker->numberBetween(1000, 100000),
+        //         'stok' => $faker->numberBetween(1, 100),
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //     ]);
+        // }
     }
 }
